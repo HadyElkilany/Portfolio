@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hady ElKilany | Data Analyst Portfolio</title>
+    <style>
+        /* Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: 'Arial, sans-serif';
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+
+        .logo h1 {
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .nav-links {
+            list-style: none;
+        }
+
+        .nav-links li {
+            display: inline;
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #007BFF;
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 20px;
+            background-color: #fff;
+            margin-bottom: 20px;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2em;
+            color: #333;
+        }
+        section h3 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2em;
+            color: #333;
+        }
+
+        /* About Section */
+        #about p {
+            max-width: 800px;
+            margin: 0 auto 20px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .skills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        .skills li {
+            background: #f0f0f0;
+            margin: 5px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1em;
+            color: #333;
+        }
+
+        /* Projects Section */
+        .project-container {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .slider {
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .slider img {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            background: rgba(0,0,0,0.5);
+            color: #fff;
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5em;
+        }
+
+        .prev {
+            left: -50px;
+        }
+
+        .next {
+            right: -50px;
+        }
+
+        .project-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .project-info h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .project-info p {
+            max-width: 600px;
+            margin: 0 auto 20px;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .project-info a {
+            text-decoration: none;
+            color: #fff;
+            background: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .project-info a:hover {
+            background: #333333a6;
+        }
+
+        /* Contact Section */
+        #contact p {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        #contact a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        #contact a:hover {
+            color: #333333a6;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        /* Responsive Styles */
+        @media (min-width: 768px) {
+            .project-container {
+                flex-direction: row;
+            }
+
+            .slider, .project-info {
+                flex: 1;
+                margin: 0 20px;
+            }
+
+            .prev {
+                left: -25px;
+            }
+
+            .next {
+                right: -25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+            <img src="/assets/images/hady-profile.jpeg" alt="Hady ElKilany">
+            <h1>Hady ElKilany</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#projects">PROJECTS</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I am a highly motivated Junior Data Analyst and a recent graduate from the Faculty of Computers and Data Science (Business Analytics) at Alexandria University with CGPA 3.8. With a solid foundation in data analysis, machine learning, and business intelligence tools, I am skilled in using technologies like Python, SQL, Power BI, Excel, and Tableau to transform complex data into actionable insights. My academic projects, combined with hands-on experience in data manipulation, predictive modeling, and data visualization, have equipped me to tackle real-world business problems. I am passionate about leveraging data-driven decision-making to drive business growth and efficiency, and I am eager to apply my skills in a professional setting.        </p>
+        <h3>Skills</h3>
+        <ul class="skills">
+            <li>Excel</li>
+            <li>Python</li>
+            <li>SQL</li>
+            <li>Data Visualization</li>
+            <li>Power BI</li>
+            <li>Tableau</li>
+            <li>Business Knowledge</li>
+            <!-- Add more skills as needed -->
+        </ul>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-container">
+            <div class="slider">
+                <button class="prev">&#10094;</button>
+                <img src="/assets/images/HR project.png" alt="Project Image" id="project-image">
+                <button class="next">&#10095;</button>
+            </div>
+            <div class="project-info">
+                <h3>HR Data Analysis Project</h3>
+                <p>
+                    An HR data analysis project utilizing Python for data preprocessing, SQL for querying insights, and Power BI for creating interactive dashboards. The project explores employee demographics, satisfaction levels, performance ratings, attrition, and experience across various departments and job roles, providing comprehensive insights through dynamic visualizations.                </p>
+                    <a href="https://app.powerbi.com/view?r=eyJrIjoiNDlmNzdiNWYtODI4MC00OWVkLThkMDItYzg1ZmEwYTY5YzZkIiwidCI6ImVhZjYyNGM4LWEwYzQtNDE5NS04N2QyLTQ0M2U1ZDc1MTZjZCIsImMiOjh9" target="_blank">View Dashboard</a>
+                    <a href="https://github.com/HadyElkilany/HR-Data-Analysis-Project" target="_blank">View on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:hadyelkilany19t@gmail.com">hadyelkilany19t@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/hady-elkilany/" target="_blank">in/hady-elkilany</a></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Hady ElKilany. All rights reserved.
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const images = [
+        '/assets/images/HR project.png',
+            '/assets/images/HR project2.png',
+            '/assets/images/HR project3.png',
+            '/assets/images/HR project4.png'
+            // Add more image paths as needed
+        ];
+
+        let currentImageIndex = 0;
+        const projectImage = document.getElementById('project-image');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+
+        prevButton.addEventListener('click', showPrevImage);
+        nextButton.addEventListener('click', showNextImage);
+
+        function showPrevImage() {
+            currentImageIndex = (currentImageIndex === 0) ? images.length - 1 : currentImageIndex - 1;
+            projectImage.src = images[currentImageIndex];
+        }
+
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex === images.length - 1) ? 0 : currentImageIndex + 1;
+            projectImage.src = images[currentImageIndex];
+        }
+    </script>
+</body>
+</html>
