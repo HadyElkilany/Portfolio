@@ -2,275 +2,410 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hady ElKilany | Data Analyst Portfolio</title>
     <style>
+        /* Import Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        /* Root Variables */
+        :root {
+            --primary-color: 	#011f4b;       /* Warm Navy */
+    --secondary-color: #03396c;     /* Light Sky Blue */
+    --accent-color: #6497b1;        /* Soft Coral */
+    --highlight-color: #005b96;     /* Ocean Blue */
+    --background-color: #b3cde050;    /* Pale Blue */
+    --text-color: #011f4b;          /* Deep Warm Blue */
+            --font-family: 'Poppins', sans-serif;
+        }
+
         /* Reset Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: var(--font-family);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: var(--primary-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            transition: background-color 0.3s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 1.5em;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-size: 1em;
+            color: #fff;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 70px 20px;
+            margin-top: 70px;
+            text-align: center;
+        }
+
+        /* Decreased spacing between sections */
+        section + section {
+            margin-top: 30px;
+        }
+
+        section h2 {
+            margin-bottom: 25px;
+            font-size: 2em;
+            color: var(--primary-color);
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        section h2::after {
+            content: '';
+            width: 70px;
+            height: 3px;
+            background-color: var(--accent-color);
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        #about p {
+            max-width: 800px;
+            margin: 0 auto 25px;
+            font-size: 1.1em;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        .skills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        .skills li {
+            background: var(--highlight-color);
+            color: #fff;
+            margin: 8px;
+            padding: 12px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .skills li:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        /* Projects Section */
+        .project-container {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        @media (min-width: 768px) {
+            .project-container {
+                flex-direction: row;
+                align-items: stretch;
+                justify-content: center;
+                text-align: left;
+            }
+        }
+
+        .slider-wrapper {
+            position: relative;
+            flex: 1;
+            animation: fadeInLeft 1s ease-in-out;
+        }
+
+        .slider {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+        }
+
+        .slider img {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        
+
+        /* Slider Buttons Positioned Outside the Image but Within Left Column */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5em;
+            z-index: 10;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .prev {
+            left: -3rem;
+        }
+
+        .next {
+            right: -3rem;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        /* Project Info Section */
+        .project-info {
+    flex: 1;
+    animation: fadeInRight 1s ease-in-out;
+    text-align: center; /* Center align content inside */
 }
 
-/* Body Styles */
-body {
-    font-family: 'Arial, sans-serif';
-    color: #333;
-    line-height: 1.6;
-    background-color: #f9f9f9;
-}
+        .project-info h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            animation: fadeInUp 1s ease-in-out;
+        }
 
-/* Navigation Bar */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+        .project-info p {
+            font-size: 1em;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-in-out;
+        }
 
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo img {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    margin-right: 15px;
-    object-fit: cover;
-}
-
-.logo h1 {
-    font-size: 1.5em;
-    color: #333;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-}
-
-.nav-links li {
-    margin-left: 20px;
-}
-
-.nav-links a {
+        .project-info a {
     text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: #333333a6;
-}
-
-/* Sections */
-section {
-    padding: 60px 20px;
-    background-color: #fff;
-    margin-bottom: 20px;
-}
-
-section h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2em;
-    color: #333;
-}
-
-section h3 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2em;
-    color: #333;
-}
-
-/* About Section */
-#about p {
-    max-width: 800px;
-    margin: 0 auto 20px;
-    text-align: center;
-    font-size: 1.1em;
-}
-
-.skills {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    list-style: none;
-}
-
-.skills li {
-    background: #f0f0f0;
-    margin: 5px;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-size: 1em;
-    color: #333;
-}
-
-/* Projects Section */
-.project-container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: 20px 0;
-}
-
-.slider {
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-}
-
-.slider img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    object-fit: cover;
-}
-
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    background: rgba(0,0,0,0.5);
     color: #fff;
-    padding: 12px;
-    border: none;
-    cursor: pointer;
-    border-radius: 50%;
-    transform: translateY(-50%);
-    font-size: 1.5em;
-}
-
-.prev {
-    left: 10px;
-}
-
-.next {
-    right: 10px;
-}
-
-.project-info {
-    text-align: center;
-    margin-top: 20px;
-    padding: 0 10px;
-}
-
-.project-info h3 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-}
-
-.project-info p {
-    font-size: 1em;
-    color: #555;
-    margin-bottom: 20px;
-}
-
-.project-info a {
-    text-decoration: none;
-    color: #fff;
-    background: #333;
+    background-color: var(--highlight-color);
     padding: 10px 20px;
-    border-radius: 5px;
-    transition: background 0.3s;
+    border-radius: 25px;
+    margin: 0 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    animation: fadeInUp 1s ease-in-out;
 }
 
-.project-info a:hover {
-    background: #333333a6;
-}
+        .project-info a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
 
-/* Contact Section */
-#contact p {
-    text-align: center;
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    color: #333;
-}
+        /* Remove Empty Spaces */
+        .project-container > div {
+            margin: 2em;
+            padding: 0;
+        }
 
-#contact a {
-    color: #333;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
+        /* Contact Section */
+        #contact p {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            animation: fadeInUp 1s ease-in-out;
+        }
 
-#contact a:hover {
-    color: #333333a6;
-}
+        #contact a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
 
-/* Footer */
-footer {
-    background-color: #fff;
-    padding: 20px;
-    text-align: center;
-    color: #777;
-    font-size: 0.9em;
-}
+        #contact a:hover {
+            color: var(--accent-color);
+        }
 
-/* Responsive Styles */
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            padding: 15px;
+            text-align: center;
+            color: #fff;
+            font-size: 0.9em;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            animation: fadeInUp 1s ease-in-out;
+        }
 
-/* Styles for screens wider than 768px */
-@media (min-width: 768px) {
-    /* Navigation Bar */
-    nav {
-        flex-wrap: nowrap;
-    }
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    /* Project Section */
-    .project-container {
-        flex-direction: row;
-        margin: 40px 0;
-    }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    .slider, .project-info {
-        flex: 1;
-        margin: 0 20px;
-    }
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
 
-    .prev {
-        left: -25px;
-    }
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
 
-    .next {
-        right: -25px;
-    }
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                display: none;
+            }
 
-    .project-info h3 {
-        font-size: 1.5em;
-    }
+            .nav-links li {
+                margin: 15px 0;
+            }
 
-    .project-info p {
-        font-size: 1.1em;
-    }
-}
+            .nav-toggle {
+                display: block;
+                cursor: pointer;
+                color: #fff;
+                font-size: 1.8em;
+            }
 
-/* Styles for screens up to 768px */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        align-items: center; /* Center items on mobile */
-        flex-wrap: wrap;     /* Allow wrapping on small screens */
-    }
+            .nav-links.active {
+                display: flex;
+            }
 
-    .nav-links {
-        flex-direction: column;
-        align-items: center; /* Center links on mobile */
-        width: 100%;
-        margin-top: 10px;
-    }
+            .nav-links a {
+                padding: 10px;
+            }
 
-    .nav-links li {
-        margin: 10px 0;
-        margin-left: 0;
-    }
-}
+            .project-container {
+                flex-direction: column;
+                align-items: center;
+            }
 
+            .project-info {
+                margin-left: 0;
+                margin-top: 20px;
+                text-align: center;
+                width: 100%;
+            }
+
+            .slider-wrapper {
+                width: 100%;
+            }
+
+            /* Adjust arrows for mobile */
+            .prev {
+                left: 10px;
+            }
+
+            .next {
+                right: 10px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .nav-toggle {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -280,6 +415,7 @@ footer {
             <img src="assets/images/hady-profile.jpeg" alt="Hady ElKilany">
             <h1>Hady ElKilany</h1>
         </div>
+        <div class="nav-toggle">&#9776;</div>
         <ul class="nav-links">
             <li><a href="#about">ABOUT</a></li>
             <li><a href="#projects">PROJECTS</a></li>
@@ -291,8 +427,9 @@ footer {
     <section id="about">
         <h2>About Me</h2>
         <p>
-            I am a highly motivated Junior Data Analyst and a recent graduate from the Faculty of Computers and Data Science (Business Analytics) at Alexandria University with CGPA 3.8. With a solid foundation in data analysis, machine learning, and business intelligence tools, I am skilled in using technologies like Python, SQL, Power BI, Excel, and Tableau to transform complex data into actionable insights. My academic projects, combined with hands-on experience in data manipulation, predictive modeling, and data visualization, have equipped me to tackle real-world business problems. I am passionate about leveraging data-driven decision-making to drive business growth and efficiency, and I am eager to apply my skills in a professional setting.        </p>
-        <h3>Skills</h3>
+            I am a highly motivated Junior Data Analyst and a recent graduate from the Faculty of Computers and Data Science (Business Analytics) at Alexandria University with a CGPA of 3.8. With a solid foundation in data analysis, machine learning, and business intelligence tools, I am skilled in using technologies like Python, SQL, Power BI, Excel, and Tableau to transform complex data into actionable insights.
+        </p>
+        <h2>Skills</h2>
         <ul class="skills">
             <li>Excel</li>
             <li>Python</li>
@@ -301,7 +438,6 @@ footer {
             <li>Power BI</li>
             <li>Tableau</li>
             <li>Business Knowledge</li>
-            <!-- Add more skills as needed -->
         </ul>
     </section>
 
@@ -309,17 +445,20 @@ footer {
     <section id="projects">
         <h2>Projects</h2>
         <div class="project-container">
-            <div class="slider">
-                <button class="prev">&#10094;</button>
-                <img src="assets/images/HR project.png" alt="Project Image" id="project-image">
-                <button class="next">&#10095;</button>
+            <div class="slider-wrapper">
+                <div class="slider">
+                    <img src="assets/images/HR project.png" alt="HR Data Analysis Project" id="project-image">
+                </div>
+                <button class="prev" aria-label="Previous image">&#10094;</button>
+                <button class="next" aria-label="Next image">&#10095;</button>
             </div>
             <div class="project-info">
                 <h3>HR Data Analysis Project</h3>
                 <p>
-                    An HR data analysis project utilizing Python for data preprocessing, SQL for querying insights, and Power BI for creating interactive dashboards. The project explores employee demographics, satisfaction levels, performance ratings, attrition, and experience across various departments and job roles, providing comprehensive insights through dynamic visualizations.                </p>
-                    <a href="https://app.powerbi.com/view?r=eyJrIjoiNDlmNzdiNWYtODI4MC00OWVkLThkMDItYzg1ZmEwYTY5YzZkIiwidCI6ImVhZjYyNGM4LWEwYzQtNDE5NS04N2QyLTQ0M2U1ZDc1MTZjZCIsImMiOjh9" target="_blank">View Dashboard</a>
-                    <a href="https://github.com/HadyElkilany/HR-Data-Analysis-Project" target="_blank">View on GitHub</a>
+                    An HR data analysis project utilizing Python for data preprocessing, SQL for querying insights, and Power BI for creating interactive dashboards. The project explores employee demographics, satisfaction levels, performance ratings, attrition, and experience across various departments and job roles, providing comprehensive insights through dynamic visualizations.
+                </p>
+                <a href="https://app.powerbi.com/view?r=..." target="_blank">View Dashboard</a>
+                <a href="https://github.com/HadyElkilany/HR-Data-Analysis-Project" target="_blank">View on GitHub</a>
             </div>
         </div>
     </section>
@@ -338,12 +477,12 @@ footer {
 
     <!-- JavaScript -->
     <script>
+        // Image Slider Logic
         const images = [
-        'assets/images/HR project.png',
+            'assets/images/HR project.png',
             'assets/images/HR project2.png',
             'assets/images/HR project3.png',
             'assets/images/HR project4.png'
-            // Add more image paths as needed
         ];
 
         let currentImageIndex = 0;
@@ -355,14 +494,22 @@ footer {
         nextButton.addEventListener('click', showNextImage);
 
         function showPrevImage() {
-            currentImageIndex = (currentImageIndex === 0) ? images.length - 1 : currentImageIndex - 1;
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
             projectImage.src = images[currentImageIndex];
         }
 
         function showNextImage() {
-            currentImageIndex = (currentImageIndex === images.length - 1) ? 0 : currentImageIndex + 1;
+            currentImageIndex = (currentImageIndex + 1) % images.length;
             projectImage.src = images[currentImageIndex];
         }
+
+        // Responsive Navigation Toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
     </script>
 </body>
 </html>
