@@ -9,12 +9,12 @@
 
         /* Root Variables */
         :root {
-            --primary-color: 	#011f4b;       /* Warm Navy */
-    --secondary-color: #03396c;     /* Light Sky Blue */
-    --accent-color: #6497b1;        /* Soft Coral */
-    --highlight-color: #005b96;     /* Ocean Blue */
-    --background-color: #b3cde050;    /* Pale Blue */
-    --text-color: #011f4b;          /* Deep Warm Blue */
+            --primary-color: #011f4b;       /* Warm Navy */
+            --secondary-color: #03396c;     /* Deep Blue */
+            --accent-color: #6497b1;        /* Soft Blue */
+            --highlight-color: #005b96;     /* Ocean Blue */
+            --background-color: #b3cde0;    /* Pale Blue */
+            --text-color: #011f4b;          /* Deep Warm Blue */
             --font-family: 'Poppins', sans-serif;
         }
 
@@ -92,6 +92,11 @@
             color: #fff;
         }
 
+        /* Navigation Toggle (for mobile) */
+        .nav-toggle {
+            display: none;
+        }
+
         /* Section Styling */
         section {
             padding: 70px 20px;
@@ -158,6 +163,81 @@
             transform: translateY(-5px);
         }
 
+        /* Certificates and CV Section within About */
+        #about .certificates-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        #about .certificates-container h2 {
+            margin-bottom: 25px;
+            font-size: 2em;
+            color: var(--primary-color);
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        #about .certificates-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        #about .certificate-item {
+            margin: 10px;
+            text-align: center;
+            flex: 1 1 45%;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        #about .certificate-item img {
+            width: 100%;
+            
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        #about .certificate-item.horizontal {
+            max-width: 80%;       /* Decrease the width of the div */
+        /* Set the desired maximum height */
+    
+    
+         /* Hide any content that overflows the div */
+    position: relative;   /* Enable positioning of child elements */
+        }
+        #about .certificate-item.horizontal img {
+        max-height: 500px;
+        max-width: fit-content;
+        margin-left: 20%;
+        
+        }
+        #about .certificate-item.horizontal .btn {
+
+        margin-left: 20%;
+        
+        }
+
+        #about .certificate-item .btn {
+            margin-top: 10px;
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            background-color: var(--accent-color);
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        #about .certificate-item .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
         /* Projects Section */
         .project-container {
             display: flex;
@@ -192,8 +272,6 @@
             transition: transform 0.5s ease;
         }
 
-        
-
         /* Slider Buttons Positioned Outside the Image but Within Left Column */
         .prev, .next {
             position: absolute;
@@ -225,10 +303,10 @@
 
         /* Project Info Section */
         .project-info {
-    flex: 1;
-    animation: fadeInRight 1s ease-in-out;
-    text-align: center; /* Center align content inside */
-}
+            flex: 1;
+            animation: fadeInRight 1s ease-in-out;
+            text-align: center;
+        }
 
         .project-info h3 {
             font-size: 1.6em;
@@ -244,16 +322,16 @@
         }
 
         .project-info a {
-    text-decoration: none;
-    color: #fff;
-    background-color: var(--highlight-color);
-    padding: 10px 20px;
-    border-radius: 25px;
-    margin: 0 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    display: inline-block;
-    animation: fadeInUp 1s ease-in-out;
-}
+            text-decoration: none;
+            color: #fff;
+            background-color: var(--highlight-color);
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin: 0 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+            animation: fadeInUp 1s ease-in-out;
+        }
 
         .project-info a:hover {
             background-color: var(--accent-color);
@@ -346,6 +424,12 @@
 
         /* Responsive Styles */
         @media (max-width: 768px) {
+            #about .certificate-item.horizontal img {
+        max-height: 500px;
+        max-width: fit-content;
+        margin-left: 10%;
+        
+        }
             .nav-links {
                 flex-direction: column;
                 position: absolute;
@@ -393,11 +477,25 @@
 
             /* Adjust arrows for mobile */
             .prev {
-                margin-bottom: 50px;
+                left: 10px;
             }
 
             .next {
-                margin-bottom: 50px;
+                right: 10px;
+            }
+
+            /* Certificates Section Mobile Adjustments */
+            #about .certificates-row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #about .certificate-item {
+                flex-basis: 100%;
+            }
+
+            #about .certificate-item img {
+                max-width: 100%;
             }
         }
 
@@ -439,6 +537,28 @@
             <li>Tableau</li>
             <li>Business Knowledge</li>
         </ul>
+
+        <!-- Certificates and CV Section -->
+        <h2>CV & Certificates</h2>
+        <div class="certificates-container">
+            <!-- First Row: Two Columns -->
+            <div class="certificates-row">
+                <div class="certificate-item">
+                    <img src="assets/images/cv.png" alt="My CV">
+                    <a href="link-to-cv.pdf" target="_blank" class="btn">View CV</a>
+                    
+                </div>
+                <div class="certificate-item">
+                    <img src="assets/images/CollegeCertificate2.jpeg" alt="Certificate 2">
+                    <a href="https://github.com/HadyElkilany/Portfolio/blob/main/assets/images/CollegeCertificate.jpeg" target="_blank" class="btn">View Certificate</a>
+                </div>
+            </div>
+            <!-- Second Row: Full Width -->
+            <div class="certificate-item horizontal">
+                <img src="assets/images/DepiCertificate.jpeg" alt="Certificate 1">
+                <a href="https://github.com/HadyElkilany/Portfolio/blob/main/assets/images/DepiCertificate.jpeg" target="_blank" class="btn">View Certificate</a> 
+            </div>
+        </div>
     </section>
 
     <!-- Projects Section -->
