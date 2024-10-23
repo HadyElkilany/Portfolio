@@ -421,13 +421,55 @@
                 transform: translateX(0);
             }
         }
+        
+        
+        @media (max-width: 1000px) { 
+            #about .certificate-item.horizontal img {
+        max-height: 500px;
+        max-width: fit-content;
+        margin-left: 12%;
+        
+        }
+        #about .certificate-item.horizontal .btn {
+
+        margin-left: 25%;
+
+}   
+            
+
+            .project-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .project-info {
+                margin-left: 0;
+                margin-top: 20px;
+                text-align: center;
+                width: 100%;
+            }
+
+            .slider-wrapper {
+                width: 90%;
+            }
+
+            /* Adjust arrows for mobile */
+            
+
+            
+            
+
+            
+
+            
+}
 
         /* Responsive Styles */
         @media (max-width: 768px) {
             #about .certificate-item.horizontal img {
         max-height: 500px;
         max-width: fit-content;
-        margin-right: 10%;
+        
         
         }
             .nav-links {
@@ -472,17 +514,10 @@
             }
 
             .slider-wrapper {
-                width: 100%;
+                width: 90%;
             }
 
-            /* Adjust arrows for mobile */
-            .prev {
-                left: 10px;
-            }
-
-            .next {
-                right: 10px;
-            }
+            
 
             /* Certificates Section Mobile Adjustments */
             #about .certificates-row {
