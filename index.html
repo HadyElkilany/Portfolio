@@ -574,26 +574,63 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-container">
-            <div class="slider-wrapper">
-                <div class="slider">
-                    <img src="assets/images/HR project.png" alt="HR Data Analysis Project" id="project-image">
-                </div>
-                <button class="prev" aria-label="Previous image">&#10094;</button>
-                <button class="next" aria-label="Next image">&#10095;</button>
+<section id="projects">
+    <h2>Projects</h2>
+     <!-- Maven Toy Stores Data Analysis Project -->
+     <div class="project-container">
+        <div class="slider-wrapper">
+            <div class="slider">
+                <img src="assets/images/project2/performance 1.png" alt="Maven toy stores Analysis Project" id="project2-image">
             </div>
-            <div class="project-info">
-                <h3>HR Data Analysis Project</h3>
-                <p>
-                    An HR data analysis project utilizing Python for data preprocessing, SQL for querying insights, and Power BI for creating interactive dashboards. The project explores employee demographics, satisfaction levels, performance ratings, attrition, and experience across various departments and job roles, providing comprehensive insights through dynamic visualizations.
-                </p>
-                <a href="https://app.powerbi.com/view?r=eyJrIjoiNDlmNzdiNWYtODI4MC00OWVkLThkMDItYzg1ZmEwYTY5YzZkIiwidCI6ImVhZjYyNGM4LWEwYzQtNDE5NS04N2QyLTQ0M2U1ZDc1MTZjZCIsImMiOjh9" target="_blank">View Dashboard</a>
-                <a href="https://github.com/HadyElkilany/HR-Data-Analysis-Project" target="_blank">View on GitHub</a>
-            </div>
+            <button class="prev" data-project="2" aria-label="Previous image">&#10094;</button>
+            <button class="next" data-project="2" aria-label="Next image">&#10095;</button>
         </div>
-    </section>
+        <div class="project-info">
+            <h3>Maven Toy Stores Analysis Project</h3>
+            <p>A comprehensive dashboard providing actionable insights into inventory and sales for Maven Toy Stores. Key metrics include total sales, profit, inventory quantity, and cost, with detailed analysis on stock levels, category profitability, and location performance. Through dynamic visuals and KPIs, the dashboard supports data-driven decisions in inventory management, identifying top-performing categories, and optimizing sales across multiple locations. Built with Power BI, the dashboard combines clear visuals and filters for efficient and targeted analysis.</p>
+            <a href="https://app.powerbi.com/view?r=eyJrIjoiODVhNTQ1NDctNmM3OS00YzUzLThmNGYtMWExMjZkMzJiNGEwIiwidCI6ImVhZjYyNGM4LWEwYzQtNDE5NS04N2QyLTQ0M2U1ZDc1MTZjZCIsImMiOjh9" target="_blank">View Dashboard</a>
+            <a href="https://github.com/HadyElkilany/Maven-Toy-Stores-Analysis" target="_blank">View on GitHub</a>
+        </div>
+    </div>
+    <!-- HR Data Analysis Project -->
+    <div class="project-container">
+        <div class="slider-wrapper">
+            <div class="slider">
+                <img src="assets/images/project1/HR project.png" alt="HR Data Analysis Project" id="project1-image">
+            </div>
+            <button class="prev" data-project="1" aria-label="Previous image">&#10094;</button>
+            <button class="next" data-project="1" aria-label="Next image">&#10095;</button>
+        </div>
+        <div class="project-info">
+            <h3>HR Data Analysis Project</h3>
+            <p>An HR data analysis project utilizing Python for data preprocessing, SQL for querying insights, and Power BI for creating interactive dashboards...</p>
+            <a href="https://app.powerbi.com/view?r=eyJrIjoiNDlmNzdiNWYtODI4MC00OWVkLThkMDItYzg1ZmEwYTY5YzZkIiwidCI6ImVhZjYyNGM4LWEwYzQtNDE5NS04N2QyLTQ0M2U1ZDc1MTZjZCIsImMiOjh9" target="_blank">View Dashboard</a>
+            <a href="https://github.com/HadyElkilany/HR-Data-Analysis-Project" target="_blank">View on GitHub</a>
+        </div>
+    </div>
+
+   
+
+    <!-- Marketing Campaign Analysis Project -->
+     <!--
+    <div class="project-container">
+        <div class="slider-wrapper">
+            <div class="slider">
+                <img src="assets/images/project3/Marketing project1.png" alt="Marketing Campaign Analysis Project" id="project3-image">
+            </div>
+            <button class="prev" data-project="3" aria-label="Previous image">&#10094;</button>
+            <button class="next" data-project="3" aria-label="Next image">&#10095;</button>
+        </div>
+        <div class="project-info">
+            <h3>Marketing Campaign Analysis Project</h3>
+            <p>Insights-driven analysis of marketing campaigns using Python and Power BI, focusing on customer acquisition, engagement, and ROI...</p>
+            <a href="https://app.powerbi.com/view?r=marketingdashboard" target="_blank">View Dashboard</a>
+            <a href="https://github.com/HadyElkilany/Marketing-Campaign-Analysis-Project" target="_blank">View on GitHub</a>
+        </div>
+    </div>
+    -->
+</section>
+
 
     <!-- Contact Section -->
     <section id="contact">
@@ -610,31 +647,47 @@
     <!-- JavaScript -->
     <script>
         // Image Slider Logic
-        const images = [
-            'assets/images/HR project.png',
-            'assets/images/HR project2.png',
-            'assets/images/HR project3.png',
-            'assets/images/HR project4.png'
-        ];
+        const projectImages = {
+    1: [
+        'assets/images/project1/HR project.png',
+        'assets/images/project1/HR project2.png',
+        'assets/images/project1/HR project3.png',
+        'assets/images/project1/HR project4.png'
+    ],
+    2: [
+        'assets/images/project2/performance 1.png',
+        'assets/images/project2/performance 2.png',
+        'assets/images/project2/Inv.png',
+        'assets/images/project2/Inv2.png'
+    ],
+    /*3: [
+        'assets/images/project3/Marketing project1.png',
+        'assets/images/project3/Marketing project2.png',
+        'assets/images/project3/Marketing project3.png'
+    ]*/
+};
 
-        let currentImageIndex = 0;
-        const projectImage = document.getElementById('project-image');
-        const prevButton = document.querySelector('.prev');
-        const nextButton = document.querySelector('.next');
+let currentImageIndices = { 1: 0, 2: 0, 3: 0 };
 
-        prevButton.addEventListener('click', showPrevImage);
-        nextButton.addEventListener('click', showNextImage);
+document.querySelectorAll('.prev').forEach(button => {
+    button.addEventListener('click', () => showPrevImage(button.dataset.project));
+});
 
-        function showPrevImage() {
-            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-            projectImage.src = images[currentImageIndex];
-        }
+document.querySelectorAll('.next').forEach(button => {
+    button.addEventListener('click', () => showNextImage(button.dataset.project));
+});
 
-        function showNextImage() {
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-            projectImage.src = images[currentImageIndex];
-        }
+function showPrevImage(projectId) {
+    const images = projectImages[projectId];
+    currentImageIndices[projectId] = (currentImageIndices[projectId] - 1 + images.length) % images.length;
+    document.getElementById(`project${projectId}-image`).src = images[currentImageIndices[projectId]];
+}
 
+function showNextImage(projectId) {
+    const images = projectImages[projectId];
+    currentImageIndices[projectId] = (currentImageIndices[projectId] + 1) % images.length;
+    document.getElementById(`project${projectId}-image`).src = images[currentImageIndices[projectId]];
+}
         // Responsive Navigation Toggle
         const navToggle = document.querySelector('.nav-toggle');
         const navLinks = document.querySelector('.nav-links');
